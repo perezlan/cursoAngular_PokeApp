@@ -1,3 +1,9 @@
 <app-navbar></app-navbar>
-<p>Grid aquí</p>
-<app-card></app-card>
+
+<mat-grid-list cols="5">
+    <mat-grid-tile *ngFor="let pokemon of pokeList">
+        <app-card [info]="pokemon"></app-card>
+    </mat-grid-tile>
+    
+    
+</mat-grid-list>
