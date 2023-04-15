@@ -6,16 +6,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PokeService {
-
+  private baseURL="https://pokeapi.co/api/v2";
+  
   constructor(private http:HttpClient) {
     
   }
-    getList(){
-      return this.http.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10");
+    getList(page:number=0,limit:number=0){
+      return this.http.get(`${this.baseURL}/pokemon/`,{params:{ //params sustituye ?offset=${page}&limit=12 
+        "offset":page,
+        "limit":limit,
+      }});
     }
 
     getPoketData(name:String){
-      return this.http.get("https://pokeapi.co/api/v2/pokemon/"+name);
+      return this.http.get(`${this.baseURL}/pokemon/${name}`);
     }
     
    

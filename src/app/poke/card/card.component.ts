@@ -21,6 +21,8 @@ export class CardComponent implements OnInit{
       this.pokeService.getPoketData(this.info.name).subscribe((res:any)=>{
         console.log(res.sprites.front_default)
         this.url=res.sprites.front_default
+        
+        
       })
   }
 }
